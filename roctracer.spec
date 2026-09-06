@@ -80,11 +80,8 @@ fi
 %{_libdir}/libroctracer64.so.*
 %{_libdir}/libroctx64.so.*
 %{_libdir}/roctracer/
-%exclude %{_docdir}/roctracer/LICENSE.md
 
 %files devel
-%{_includedir}/roctracer.h
-%{_includedir}/roctracer_*.h
-%{_includedir}/roctx.h
+%{_includedir}/roctracer/
 %{_libdir}/libroctracer64.so
 %{_libdir}/libroctx64.so
