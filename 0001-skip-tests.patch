@@ -1,0 +1,16 @@
+Skip tests: they require FindHIP.cmake which distro HIP no longer ships.
+
+--- a/CMakeLists.txt	2026-08-26 11:38:28.470118300 +0200
++++ b/CMakeLists.txt	2026-09-07 00:51:09.663410349 +0200
+@@ -64,11 +64,6 @@
+ ## Build libraries
+ add_subdirectory(src)
+ 
+-## Build tests
+-if(${LIBRARY_TYPE} STREQUAL SHARED)
+-  add_subdirectory(test)
+-endif()
+-
+ ## Build Plugins
+ add_subdirectory(plugin)
+ 

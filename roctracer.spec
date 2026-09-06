@@ -10,6 +10,7 @@ License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-systems
 Source0:	https://github.com/ROCm/rocm-systems/releases/download/therock-10.0/roctracer.tar.gz#/roctracer-%{version}.tar.gz
+Patch0:		0001-skip-tests.patch
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
@@ -38,9 +39,14 @@ Headers for roctracer and ROCTx.
 %build
 export CXX=hipcc
 export CC=clang
-%cmake %{rocm_cmake_fhs} \
+CXXFLAGS=$(printf '%s' "%{optflags}" | sed 's/-mfpmath=sse//g')
+export CXXFLAGS
+%cmake %{rocm_cmake_fhs} %{rocm_cmake_gpu_targets} \
 	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 	-DCMAKE_CXX_COMPILER=hipcc \
+	-DCMAKE_HIP_COMPILER=hipcc \
+	-DCMAKE_HIP_ARCHITECTURES="%{rocm_gpu_targets}" \
+	-DCMAKE_CXX_FLAGS="$CXXFLAGS" \
 	-DROCM_PATH=%{_prefix} \
 	-DCMAKE_PREFIX_PATH=%{_prefix} \
 	-G Ninja
