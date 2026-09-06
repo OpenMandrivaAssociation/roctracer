@@ -20,8 +20,6 @@ BuildRequires:	rocm-runtime-devel
 BuildRequires:	python
 BuildRequires:	python%{pyver}dist(cppheaderparser)
 
-ExclusiveArch:	%{x86_64} %{aarch64}
-
 %description
 libroctracer64 traces HSA/HIP API calls. libroctx64 provides the
 ROCTx markers used by PyTorch Kineto and RCCL (torch.cuda.nvtx).
