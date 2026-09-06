@@ -58,6 +58,7 @@ export CXXFLAGS
 
 %install
 %ninja_install -C build
+rm -rf %{buildroot}%{_docdir}/roctracer %{buildroot}%{_docdir}/roctracer-asan
 if [ -d %{buildroot}/usr/lib ] && [ ! -d %{buildroot}%{_libdir}/libroctracer64.so ] && [ -e %{buildroot}/usr/lib/libroctracer64.so* ]; then
 	mkdir -p %{buildroot}%{_libdir}
 	mv %{buildroot}/usr/lib/libroctracer64.so* %{buildroot}%{_libdir}/ 2>/dev/null || true
