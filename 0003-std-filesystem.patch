@@ -1,0 +1,78 @@
+Use std::filesystem; experimental TS needs libstdc++fs which hipcc cannot find.
+
+--- a/src/roctracer/loader.h
++++ b/src/roctracer/loader.h
+@@ -26,11 +26,11 @@
+ #include <hip/hip_runtime_api.h>
+ 
+ #include <dlfcn.h>
+-#include <experimental/filesystem>
++#include <filesystem>
+ #include <link.h>
+ #include <unistd.h>
+ 
+-namespace fs = std::experimental::filesystem;
++namespace fs = std::filesystem;
+ 
+ namespace roctracer {
+ 
+--- a/src/tracer_tool/tracer_tool.cpp
++++ b/src/tracer_tool/tracer_tool.cpp
+@@ -27,7 +27,7 @@
+ #include <atomic>
+ #include <cassert>
+ #include <chrono>
+-#include <experimental/filesystem>
++#include <filesystem>
+ #include <iostream>
+ #include <sstream>
+ #include <string>
+@@ -56,7 +56,7 @@
+ 
+ void initialize() __attribute__((constructor(101)));
+ 
+-namespace fs = std::experimental::filesystem;
++namespace fs = std::filesystem;
+ 
+ // Macro to check ROC-tracer calls status
+ #define CHECK_ROCTRACER(call)                                                                      \
+--- a/src/hip_stats/hip_stats.cpp
++++ b/src/hip_stats/hip_stats.cpp
+@@ -23,7 +23,7 @@
+ 
+ #include <cstdint>
+ #include <cstdlib>
+-#include <experimental/filesystem>
++#include <filesystem>
+ #include <iomanip>
+ #include <iostream>
+ #include <fstream>
+@@ -124,7 +124,7 @@
+   }
+ }
+ 
+-namespace fs = std::experimental::filesystem;
++namespace fs = std::filesystem;
+ 
+ void DumpStatistics() {
+   CHECK_ROCTRACER(roctracer_close_pool());
+--- a/plugin/file/file.cpp
++++ b/plugin/file/file.cpp
+@@ -28,7 +28,7 @@
+ 
+ #include <cstddef>
+ #include <cstdint>
+-#include <experimental/filesystem>
++#include <filesystem>
+ #include <fstream>
+ #include <memory>
+ #include <optional>
+@@ -51,7 +51,7 @@
+     if ((call) != 0) fatal("%s", roctracer_error_string());                                        \
+   } while (false)
+ 
+-namespace fs = std::experimental::filesystem;
++namespace fs = std::filesystem;
+ 
+ namespace {
+ 

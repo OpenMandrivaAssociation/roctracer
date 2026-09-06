@@ -12,6 +12,7 @@ URL:		https://github.com/ROCm/rocm-systems
 Source0:	https://github.com/ROCm/rocm-systems/releases/download/therock-10.0/roctracer.tar.gz#/roctracer-%{version}.tar.gz
 Patch0:		0001-skip-tests.patch
 Patch1:		0002-no-stdcxxfs.patch
+Patch2:		0003-std-filesystem.patch
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
