@@ -11,6 +11,7 @@ Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-systems
 Source0:	https://github.com/ROCm/rocm-systems/releases/download/therock-10.0/roctracer.tar.gz#/roctracer-%{version}.tar.gz
 Patch0:		0001-skip-tests.patch
+Patch1:		0002-no-stdcxxfs.patch
 
 BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
@@ -18,6 +19,7 @@ BuildRequires:	ninja
 BuildRequires:	hipcc
 BuildRequires:	rocm-hip-devel
 BuildRequires:	rocm-runtime-devel
+BuildRequires:	cmake(amd_comgr)
 BuildRequires:	python
 BuildRequires:	python%{pyver}dist(cppheaderparser)
 
