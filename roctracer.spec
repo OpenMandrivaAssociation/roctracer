@@ -1,15 +1,15 @@
-# Legacy ROCm tracer + libroctx64. TheRock 10.0 still ships it;
+# Legacy ROCm tracer + libroctx64. TheRock 10.1 still ships it;
 # rocprofiler-sdk-roctx is the successor, but many consumers look
 # for libroctx64 from this package.
 
 Name:		roctracer
-Version:	10.0.0
+Version:	10.1.0
 Release:	1
 Summary:	ROCm tracer and ROCTx annotation library
 License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ROCm/rocm-systems
-Source0:	https://github.com/ROCm/rocm-systems/releases/download/therock-10.0/roctracer.tar.gz#/roctracer-%{version}.tar.gz
+Source0:	https://github.com/ROCm/rocm-systems/releases/download/therock-10.1/roctracer.tar.gz#/roctracer-%{version}.tar.gz
 Patch0:		0001-skip-tests.patch
 Patch1:		0002-no-stdcxxfs.patch
 Patch2:		0003-std-filesystem.patch
